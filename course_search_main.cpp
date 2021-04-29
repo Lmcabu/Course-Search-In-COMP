@@ -6,7 +6,7 @@
 #include <iostream> // cout
 #include <fstream> // ifstream
  
-using namespace std;
+using namespace std;//Hello world
 
 Course courseList[81];
 struct course{
