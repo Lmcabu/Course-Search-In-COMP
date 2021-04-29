@@ -36,13 +36,13 @@ void printResult(Course result);
 
 }
 
-//read from document
+//PAN Yalu read from document
 string readInfor(int sequenceNum){
     return NULL;
 }
 
 
-//deal with "COMP1011 Programming Fundamentals Null 3 https://www.comp.polyu.edu.hk/files/COMP1011_Programming_Fundamentals_Dec2018.pdf"
+//PAN Yalu deal with "COMP1011 Programming Fundamentals Null 3 https://www.comp.polyu.edu.hk/files/COMP1011_Programming_Fundamentals_Dec2018.pdf"
 course informationProcess(string information){
     course a;
     return a;
