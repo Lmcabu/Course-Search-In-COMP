@@ -8,18 +8,30 @@
  
 using namespace std;//Hello world
 
-Course courseList[81];
+
+const int COURSE_SIZE = 81;
+Course courseList[COURSE_SIZE];
+
+
 struct course{
     string  s_courseName;
     string s_preRequisite;
     string s_creditValue;
     string s_link;
 };
+
+struct course_link_list{
+    Course value;
+    course_link_list* next; 
+};
+
+
 void ini();
 string readInfor(int);
 course informationProcess(string);
-Course search(string);
+Course *search(string);
 void printResult(Course result);
+string changeToLower(string source); // change a string to lower and return a new lower string
 
 
 
@@ -48,11 +60,45 @@ course informationProcess(string information){
     return a;
 }
 
+
+//input a string and return its lower case;
+
+string changeToLower(string source) {
+    string result = source;
+    for(int i = 0; i<source.length(); i++) {
+        result[i] = tolower(source[i]);
+    }
+    return result;
+}
+
+
+
+
 //return the course object
 //case-sensitive
-Course search(string keyword){
-    Course a;
-    return a;
+// input keyword and return a link list of related coures
+
+Course *search(string keyword){
+    Course* head = new Course();
+    Course* end = head;
+    Course* current;
+    int size = 1;
+    for(int i = 0; i < COURSE_SIZE; i++) {
+        if(changeToLower(courseList[i].getCourseName()).find(keyword) != string::npos) {
+            current = &courseList[i];
+            if(size == 1) {
+                head = current;
+                end = current;
+            }
+            else {
+                end -> next = current;
+                end = current;
+            }
+            size++;  
+        }
+    }
+    return head;
+    
 }
 
 void printResult(Course result){
