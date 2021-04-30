@@ -18,6 +18,13 @@ class Course{
 
 };
 
+Course::Course() {
+    m_courseName = "";
+    m_preRequisite = "";
+    m_creditValue = "";
+    m_link = "";
+}
+
 void Course::setValue(string courseName,string preRequisite,string creditValue,string link){
     m_courseName=courseName;
     m_preRequisite=preRequisite;

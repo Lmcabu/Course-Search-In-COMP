@@ -1,5 +1,5 @@
 #include <iostream> // iostream
-#include "course.h"
+#include "Course.h"
 #include <string>
 #include <vector>
 #include <sstream> //istringstream
