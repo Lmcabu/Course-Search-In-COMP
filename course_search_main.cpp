@@ -83,6 +83,7 @@ Course *search(string keyword){
     Course* end = head;
     Course* current;
     int size = 1;
+    keyword = changeToLower(keyword);
     for(int i = 0; i < COURSE_SIZE; i++) {
         if(changeToLower(courseList[i].getCourseName()).find(keyword) != string::npos) {
             current = &courseList[i];
