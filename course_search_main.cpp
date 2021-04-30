@@ -1,6 +1,6 @@
 #include <iostream> // iostream
 #include "Course.h"
-#include <string>
+#include <string>  // string
 #include <vector>
 #include <sstream> //istringstream
 #include <iostream> // cout
