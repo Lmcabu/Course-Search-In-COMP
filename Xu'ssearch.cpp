@@ -27,10 +27,17 @@ string changeToLower(string source); // change a string to lower and return a ne
 int Hash(string word); // input a word and return the hash number of the word 
 void iniHashTable(); // initiallize the HashTable
 string* keyWordProcess(string keyword,int& wordNumber); // divided the key words into different word part and return the link of the Dynamic array
-RESULT resultSort(const RESULT &result ); // input origianl result and return the sorted result by courses show time
 void loadResult(RESULT* resultHead, const HASH_NODE* node); // input the head of result and load answer to the result
 
 
+//change a string to lower and return a new lower string
+string changeToLower(string source) {
+    string result = source;
+    for(int i = 0; i<source.length(); i++) {
+        result[i] = tolower(source[i]);
+    }
+    return result;
+}
 
 
 
