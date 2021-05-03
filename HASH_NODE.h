@@ -5,7 +5,7 @@
 using namespace std;
 
 struct COURSE_ID {
-    string course_id;
+    int course_id;
     COURSE_ID* next;
 };
 
