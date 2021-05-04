@@ -5,8 +5,8 @@
 using namespace std;
 
 struct COURSE_ID {
-    string course_id;
-    COURSE_ID* next;
+    int course_id;
+    COURSE_ID* next = NULL;
 };
 
 class HASH_NODE {
