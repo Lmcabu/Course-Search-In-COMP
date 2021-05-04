@@ -6,7 +6,7 @@ using namespace std;
 
 struct COURSE_ID {
     int course_id;
-    COURSE_ID* next;
+    COURSE_ID* next = NULL;
 };
 
 class HASH_NODE {
