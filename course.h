@@ -1,14 +1,16 @@
 #include <string>
 using namespace std;
 
-// PAN Yalu edit here . 
+
 class Course{
     
     public:
     Course();
-    //Course(string courseName,string preRequisite,int creditValue,string link);
-    void setValue(string courseName,string preRequisite,string creditValue,string link);
-    // get course name;
+    //Course(string courseID,string courseName,string preRequisite,int creditValue,string link);
+    void setValue(string courseID,string courseName,string preRequisite,string creditValue,string link);
+   
+
+    string getCourseID();
     string getCourseName();
     string getPreRequisite();
     string getCreditValue();
@@ -17,12 +19,11 @@ class Course{
     Course* next;
 
     private:
+    string m_courseID;
     string  m_courseName;
     string m_preRequisite;
     string m_creditValue;
     string m_link;
-
-
 };
 
 Course::Course() {
@@ -33,11 +34,16 @@ Course::Course() {
     next = NULL;
 }
 
-void Course::setValue(string courseName,string preRequisite,string creditValue,string link){
+void Course::setValue(string courseID,string courseName,string preRequisite,string creditValue,string link){
+    m_courseID=courseID;
     m_courseName=courseName;
     m_preRequisite=preRequisite;
     m_creditValue=creditValue;
     m_link=link;
+}
+
+string Course::getCourseID(){
+    return m_courseID;
 }
 
 string Course::getCourseName() {
