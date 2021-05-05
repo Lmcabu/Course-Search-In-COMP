@@ -39,6 +39,17 @@ string changeToLower(string source) {
     return result;
 }
 
+long long compute_hash(string const& s){
+    const int p =31;
+    const int m =111;
+    long long hash_value = 0;
+    long long p_pow = 1;
+    for (char c : s){
+        hash_value = (hash_value + (c - 'a' + 1)*p_pow) % m;
+        p_pow = (p_pow * p)%m;
+    }
+    return hash_value;
+}
 
 // input keyword and wordNumber and return a wordlist. return null if there is no keyword input
 string* keyWordProcess(string keyword, int& wordNumber) {
