@@ -102,22 +102,22 @@ string* keyWordProcess(string keyword, int& wordNumber) {
 
 
 void loadResult(RESULT* resultHead, HASH_NODE* node) {
-    COURSE_ID* currentCouresIDPtr = node -> getCourseIDPtr();
+    COURSE_INDEX* currentCouresIndexPtr = node -> getCourseIDPtr();
 
     if(resultHead -> show_times == 0) {
 
-        int courseID = currentCouresIDPtr -> course_id;
+        int courseID = currentCouresIndexPtr -> course_index;
         resultHead -> result_course = courseList[courseID];
         resultHead -> show_times =  resultHead -> show_times + 1;
 
-        currentCouresIDPtr  = currentCouresIDPtr -> next; //move to next ID
+        currentCouresIndexPtr  = currentCouresIndexPtr -> next; //move to next ID
 
-        while(currentCouresIDPtr != NULL) {
+        while(currentCouresIndexPtr != NULL) {
             bool needNew = true;
             RESULT* currentResult = resultHead;
             while(currentResult != NULL) {
                 // judeg if there is the same coure in the result
-                if(currentResult -> result_course.getCourseName() ==  courseList[currentCouresIDPtr -> course_id].getCourseName()) {
+                if(currentResult -> result_course.getCourseName() ==  courseList[currentCouresIndexPtr -> course_index].getCourseName()) {
                     currentResult -> show_times = currentResult -> show_times + 1;
                     needNew = false;
                     break;
@@ -127,7 +127,7 @@ void loadResult(RESULT* resultHead, HASH_NODE* node) {
             if(needNew){
                 currentResult = new RESULT();
                 // add information to new result
-                currentResult -> result_course = courseList[currentCouresIDPtr -> course_id];
+                currentResult -> result_course = courseList[currentCouresIndexPtr -> course_index];
                 currentResult -> show_times = currentResult -> show_times + 1;
 
                 //add new result to the total result
@@ -140,12 +140,12 @@ void loadResult(RESULT* resultHead, HASH_NODE* node) {
     }
     else {
         // look up all the course ID;
-        while(currentCouresIDPtr != NULL) {
+        while(currentCouresIndexPtr != NULL) {
             bool needNew = true;
             RESULT* currentResult = resultHead;
             while(currentResult != NULL) {
                 // judeg if there is the same coure in the result
-                if(currentResult -> result_course.getCourseName() ==  courseList[currentCouresIDPtr -> course_id].getCourseName()) {
+                if(currentResult -> result_course.getCourseName() ==  courseList[currentCouresIndexPtr -> course_index].getCourseName()) {
                     currentResult -> show_times = currentResult -> show_times + 1;
                     needNew = false;
                     break;
@@ -155,7 +155,7 @@ void loadResult(RESULT* resultHead, HASH_NODE* node) {
             if(needNew){
                 currentResult = new RESULT();
                 // add information to new result
-                currentResult -> result_course = courseList[currentCouresIDPtr -> course_id];
+                currentResult -> result_course = courseList[currentCouresIndexPtr -> course_index];
                 currentResult -> show_times = currentResult -> show_times + 1;
 
                 //add new result to the total result
@@ -194,6 +194,8 @@ RESULT *hashSearch(string keyword){
     return resultHead; 
 }
 */
+
+
 
 
 
