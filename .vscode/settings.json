@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "xstring": "cpp"
+        "*.rmd": "markdown",
+        "iomanip": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
     }
 }

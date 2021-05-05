@@ -1,37 +1,29 @@
-#include <iostream> // iostream
-#include "Course.h"
-#include <string>  // string
+#include <iostream>
+#include "course.h"
+#include <string>
 #include <vector>
-#include <sstream> //istringstream
-#include <iostream> // cout
+
 #include <fstream> // ifstream
+
  
-using namespace std;//Hello world
+using namespace std;
 
 
 const int COURSE_SIZE = 81;
 Course courseList[COURSE_SIZE];
 
-
 struct course{
+    string s_courseID;
     string  s_courseName;
     string s_preRequisite;
     string s_creditValue;
     string s_link;
 };
-
-struct course_link_list{
-    Course value;
-    course_link_list* next; 
-};
-
-
 void ini();
 string readInfor(int);
 course informationProcess(string);
 Course *search(string);
 void printResult(Course result);
-string changeToLower(string source); // change a string to lower and return a new lower string
 
 
 
@@ -39,29 +31,82 @@ string changeToLower(string source); // change a string to lower and return a ne
  void ini(){
     for(int i=0;i<81;i++){
         //get information from the document
-        string inforString=readInfor(i+1);
+        string inforString=readInfor(i+2);
         course inforStruct=informationProcess(inforString);
         
         courseList[i]=Course();
-        courseList[i].setValue(inforStruct.s_courseName,inforStruct.s_preRequisite,inforStruct.s_creditValue,inforStruct.s_link);
+        courseList[i].setValue(inforStruct.s_courseID,inforStruct.s_courseName,inforStruct.s_preRequisite,inforStruct.s_creditValue,inforStruct.s_link);
     }
 
 }
 
-//PAN Yalu read from document
+
+//read from document
 string readInfor(int sequenceNum){
-    return NULL;
+    ifstream  myfile;
+    myfile.open("data.tsv", ios::out | ios::in );
+    
+    string result;
+
+    for(int i=0;i<sequenceNum;i++){
+        getline(myfile,result);
+    } 
+    return result;
 }
 
 
-//PAN Yalu deal with "COMP1011 Programming Fundamentals Null 3 https://www.comp.polyu.edu.hk/files/COMP1011_Programming_Fundamentals_Dec2018.pdf"
-course informationProcess(string information){
+//deal with "1  COMP1011   Programming Fundamentals    Null    3   https://www.comp.polyu.edu.hk/files/COMP1011_Programming_Fundamentals_Dec2018.pdf"
+course informationProcess(string infor){
+    
+    
+    string cid;
+    string cname;
+    string cpre;
+    string ccredit;
+    string clink;
+
+    size_t n = infor.find("\t");
+    //level
+    string level = infor.substr(0,n);
+
+    infor = infor.substr(n + 1);
+    n = infor.find("\t");
+    //course id
+    cid = infor.substr(0, n);
+
+    infor = infor.substr(n + 1);
+    n = infor.find("\t");
+    //course name
+    cname = infor.substr(0, n);
+
+    infor = infor.substr(n + 1);
+    n = infor.find("\t");
+    //pre-requisite
+    cpre = infor.substr(0, n);
+
+    infor = infor.substr(n + 1);
+    n = infor.find("\t");
+    //credit value
+    ccredit = infor.substr(0, n);
+    
+    infor = infor.substr(n + 1);
+    n = infor.find("\t");
+    //link
+    string clink = infor.substr(0, n);
+
     course a;
+    a.s_courseID=cid;
+    a.s_courseName=cname;
+    a.s_preRequisite=cpre;
+    a.s_creditValue=ccredit;
+    a.s_link=clink;
+
     return a;
 }
 
 
-//input a string and return its lower case;
+
+
 
 string changeToLower(string source) {
     string result = source;
@@ -70,13 +115,6 @@ string changeToLower(string source) {
     }
     return result;
 }
-
-
-
-
-//return the course object
-//case-sensitive
-// input keyword and return a link list of related coures
 
 Course *search(string keyword){
     Course* head = new Course();
@@ -100,6 +138,7 @@ Course *search(string keyword){
     }
     return head;
     
+
 }
 
 void printResult(Course result){
