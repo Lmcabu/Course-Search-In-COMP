@@ -142,7 +142,7 @@ Course *search(string keyword){
 }
 
 void printResult(Course result){
-
+    
 }
 
 
