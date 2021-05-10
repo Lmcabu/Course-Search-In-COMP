@@ -2,8 +2,7 @@
 #include "course.h"
 #include <string>
 #include <vector>
-#include <fstream> // ifstream
-#include "Xu'ssearch.cpp"
+#include <fstream>
 #include "HASH_NODE.h"
 
 
