@@ -227,7 +227,7 @@ void add(string word, int index){
     HASH_NODE* current=hashTable[hashCode];
 
     bool dup=false;
-    while(current->next!=NULL){
+    while(current!=NULL){
         if(compare(word,current->getWord())){
             dup=true;
             
@@ -236,9 +236,8 @@ void add(string word, int index){
 
             COURSE_INDEX *temp=current->getCourseIDPtr();
             insert(temp,newCourseIndex);
-            
 
-           
+            current->setCourseIndex(temp);   
         }
         current=current->next;
     }
