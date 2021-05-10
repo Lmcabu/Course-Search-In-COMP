@@ -4,8 +4,6 @@
 # 1 "<command-line>"
 # 1 "C:\\Users\\15477\\Desktop\\group project\\Course-Search-In-COMP\\HASH_NODE.h"
 
-
-
 struct COURSE_INDEX {
     int course_index;
     COURSE_INDEX* next = NULL;

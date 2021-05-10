@@ -1,6 +1,4 @@
 
-
-
 struct COURSE_INDEX {
     int course_index;
     COURSE_INDEX* next = NULL;

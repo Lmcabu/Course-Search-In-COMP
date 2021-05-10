@@ -3,7 +3,6 @@
 #include <string>
 #include <vector>
 #include <fstream> // ifstream
-#include "Xu'ssearch.cpp"
 #include "HashSearch.cpp"
 #include "HASH_NODE.h"
 
