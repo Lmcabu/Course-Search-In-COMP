@@ -2,8 +2,10 @@
 #include "course.h"
 #include <string>
 #include <vector>
-
 #include <fstream> // ifstream
+#include "Xu'ssearch.cpp"
+#include "HASH_NODE.h"
+
 
  
 using namespace std;
@@ -23,7 +25,7 @@ void ini();
 string readInfor(int);
 course informationProcess(string);
 Course *search(string);
-void printResult(Course result);
+void printResult(RESULT*);
 
 
 
@@ -141,7 +143,64 @@ Course *search(string keyword){
 
 }
 
-void printResult(Course result){
+
+
+
+
+
+
+
+RESULT* sorting(RESULT* result) {
+    RESULT sortedResultList[81];
+    int index = 0;
+
+    while (result != NULL) {
+        sortedResultList[index++] = *result;
+        result = result->next;
+    }
+
+    for (int i = 0; i < index; i++) {
+        for (int j = i + 1; j < index; j++) {
+            if (sortedResultList[i].show_times <sortedResultList[j].show_times) {
+                RESULT temp = sortedResultList[i];
+                sortedResultList[i] = sortedResultList[j];
+                sortedResultList[j] = temp;
+            }
+        }
+    }
+
+    return sortedResultList;
+}
+
+
+
+
+void printResult(RESULT* result){
+    //sorting
+    RESULT sortedResultList[81];
+    int index = 0;
+
+    while (result != NULL) {
+        sortedResultList[index++] = *result;
+        result = result->next;
+    }
+
+    for (int i = 0; i < index; i++) {
+        for (int j = i + 1; j < index; j++) {
+            if (sortedResultList[i].show_times <sortedResultList[j].show_times) {
+                RESULT temp = sortedResultList[i];
+                sortedResultList[i] = sortedResultList[j];
+                sortedResultList[j] = temp;
+            }
+        }
+    }
+
+
+    for(int i=0;i<index;i++){
+       sortedResultList->result_course.getCourseID()<<"\t"
+
+    }
+
     
 }
 

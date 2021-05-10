@@ -78,11 +78,7 @@ void HashTable::add(string word, int index){
 
 }
 
-vector<string> split(string a){
 
-
-    return NULL;
-}
 
 
 vector<string> split(const string& str)
