@@ -16,6 +16,7 @@ class HASH_NODE {
     COURSE_INDEX* getCourseIDPtr();
     HASH_NODE();
     void setHashNode(string _word, COURSE_INDEX* _courseIDPtr);
+    Void setCourseIndex(COURSE_INDEX* _courseIDPtr);
 
     private:
     string word;
@@ -40,4 +41,8 @@ string HASH_NODE::getWord() {
 
 COURSE_INDEX* HASH_NODE::getCourseIDPtr() {
     return courseIDPtr;
+}
+
+void HASH_NODE::setCourseIndex(COURSE_INDEX* _courseIDPtr) {
+    courseIDPtr = _courseIDPtr;
 }
