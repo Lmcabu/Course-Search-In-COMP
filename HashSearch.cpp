@@ -1,10 +1,8 @@
 #include <iostream> // iostream
-#include "course.h"
+#include "Course.h"
 #include <string>  // string
 #include <vector>
-#include <sstream> //istringstream
-#include <iostream> // cout
-#include <fstream> // ifstream
+
 #include "HASH_NODE.h"
 
  
