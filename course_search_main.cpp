@@ -4,6 +4,7 @@
 #include <vector>
 #include <fstream> // ifstream
 #include "Xu'ssearch.cpp"
+#include "HashSearch.cpp"
 #include "HASH_NODE.h"
 
 
@@ -12,7 +13,7 @@
 using namespace std;
 
 
-const int COURSE_SIZE = 81;
+const int COURSE_SIZE = 83;
 Course courseList[COURSE_SIZE];
 
 struct course{
@@ -32,13 +33,14 @@ void printResult(RESULT*);
 
 //initialize all courses
  void ini(){
-    for(int i=0;i<81;i++){
+    for(int i=0;i<83;i++){
         //get information from the document
         string inforString=readInfor(i+2);
         course inforStruct=informationProcess(inforString);
         
-        courseList[i]=Course();
-        courseList[i].setValue(inforStruct.s_courseID,inforStruct.s_courseName,inforStruct.s_preRequisite,inforStruct.s_creditValue,inforStruct.s_link);
+        Course newCourse=Course();
+        newCourse.setValue(inforStruct.s_courseID,inforStruct.s_courseName,inforStruct.s_preRequisite,inforStruct.s_creditValue,inforStruct.s_link);
+        courseList[i]=newCourse;
     }
 
 }
@@ -119,35 +121,6 @@ string changeToLower(string source) {
     return result;
 }
 
-Course *search(string keyword){
-    Course* head = new Course();
-    Course* end = head;
-    Course* current;
-    int size = 1;
-    keyword = changeToLower(keyword);
-    for(int i = 0; i < COURSE_SIZE; i++) {
-        if(changeToLower(courseList[i].getCourseName()).find(keyword) != string::npos) {
-            current = &courseList[i];
-            if(size == 1) {
-                head = current;
-                end = current;
-            }
-            else {
-                end -> next = current;
-                end = current;
-            }
-            size++;  
-        }
-    }
-    return head;
-    
-
-}
-
-
-
-
-
 
 
 
@@ -217,6 +190,7 @@ void printResult(RESULT* result){
 int main(){
      
     ini();
+    /*
     int doculinenum;
     string keyword;
     string actkey
@@ -225,14 +199,28 @@ int main(){
     cout << "Please input the key word: " ;
     cin >> keyword;
     changeToLower(keyword);
-    
+    */
 
 
 
 
     //introduction information
     //request for input
-    
+    string keyword; char next;
+    do{
+        
+        cout<<"Welcome to the course search application!"<<endl;
+        cout<<"Please input keyword(s) of the course(s) you want to search for:"<<endl;
+        cin>>keyword;
+        RESULT* result=hashSearch(keyword);
+        result=sorting(result);
+        printResult(result);
+
+
+        cout<<"Do you want to search for other courses?('Y' for yes and press any other key for no)"<<endl;
+        cin>>next;
+    }while(next=='Y');
+ 
 
     return 0;
 }
