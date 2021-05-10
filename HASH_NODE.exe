@@ -1,3 +1,8 @@
+# 1 "C:\\Users\\15477\\Desktop\\group project\\Course-Search-In-COMP\\HASH_NODE.h"
+# 1 "C:\\Users\\15477\\Desktop\\group project\\Course-Search-In-COMP//"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "C:\\Users\\15477\\Desktop\\group project\\Course-Search-In-COMP\\HASH_NODE.h"
 
 struct COURSE_INDEX {
     int course_index;
@@ -11,10 +16,7 @@ class HASH_NODE {
     COURSE_INDEX* getCourseIDPtr();
     HASH_NODE();
     void setHashNode(string _word, COURSE_INDEX* _courseIDPtr);
-<<<<<<< HEAD
-=======
-    
->>>>>>> 4f04ae318246b8a76dbc00fdc079a6f9a28db9f9
+
     void setCourseIndex(COURSE_INDEX* _courseIDPtr);
 
     private:

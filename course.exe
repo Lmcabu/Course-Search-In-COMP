@@ -1,12 +1,17 @@
+# 1 "C:\\Users\\15477\\Desktop\\group project\\Course-Search-In-COMP\\course.h"
+# 1 "C:\\Users\\15477\\Desktop\\group project\\Course-Search-In-COMP//"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "C:\\Users\\15477\\Desktop\\group project\\Course-Search-In-COMP\\course.h"
 using namespace std;
 
 class Course{
-    
+
     public:
     Course();
-    //Course(string courseID,string courseName,string preRequisite,int creditValue,string link);
+
     void setValue(string courseID,string courseName,string preRequisite,string creditValue,string link);
-   
+
 
     string getCourseID();
     string getCourseName();
@@ -18,7 +23,7 @@ class Course{
 
     private:
     string m_courseID;
-    string  m_courseName;
+    string m_courseName;
     string m_preRequisite;
     string m_creditValue;
     string m_link;
@@ -59,5 +64,3 @@ string Course::getPreRequisite() {
 string Course::getLink() {
     return m_link;
 }
-
-
