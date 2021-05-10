@@ -1,5 +1,5 @@
 #include <iostream>
-#include "course.h"
+#include "Course.h"
 #include <string>
 #include <vector>
 <<<<<<< HEAD
@@ -36,7 +36,7 @@ void printResult(RESULT*);
 
 //initialize all courses
  void ini(){
-    for(int i=0;i<83;i++){
+    for(int i=0;i<COURSE_SIZE;i++){
         //get information from the document
         string inforString=readInfor(i+2);
         course inforStruct=informationProcess(inforString);
@@ -154,7 +154,7 @@ RESULT* sorting(RESULT* result) {
 
 void printResult(RESULT* result){
     //sorting
-    RESULT sortedResultList[81];
+    RESULT sortedResultList[COURSE_SIZE];
     int index = 0;
 
     while (result != NULL) {
@@ -193,6 +193,7 @@ void printResult(RESULT* result){
 int main(){
      
     ini();
+    iniHashTable();
     /*
     int doculinenum;
     string keyword;
