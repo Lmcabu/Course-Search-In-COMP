@@ -1,11 +1,9 @@
 #include <iostream> // iostream
 #include "Course.h"
-#include <string>  // string
 #include <vector>
-
+#include <string>
 #include "HASH_NODE.h"
 
- 
 using namespace std;//Hello world
 
 
@@ -270,8 +268,8 @@ vector<string> split(const string& str)
 
 void iniHashTable(){
      for(int i=0;i<111;i++){ 
-        HASH_NODE temp=HASH_NODE();
-        hashTable[i]=&temp;
+        HASH_NODE *temp=new HASH_NODE();
+        hashTable[i]=temp;
     }
 
     for(int i=0;i<83;i++){
