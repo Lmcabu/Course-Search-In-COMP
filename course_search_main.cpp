@@ -216,7 +216,19 @@ void printResult(RESULT* result){
 
 int main(){
      
-     ini();
+    ini();
+    int doculinenum;
+    string keyword;
+    string actkey
+    readInfor(81);
+    informationProcess(result);
+    cout << "Please input the key word: " ;
+    cin >> keyword;
+    changeToLower(keyword);
+    
+
+
+
 
     //introduction information
     //request for input

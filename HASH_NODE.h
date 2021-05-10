@@ -1,7 +1,5 @@
-#include<string>
-#include<iostream>
-
-
+#include <string>
+#include <iostream>
 using namespace std;
 
 struct COURSE_INDEX {
@@ -17,6 +15,7 @@ class HASH_NODE {
     HASH_NODE();
     void setHashNode(string _word, COURSE_INDEX* _courseIDPtr);
     
+    void setCourseIndex(COURSE_INDEX* _courseIDPtr);
 
     private:
     string word;
@@ -41,4 +40,8 @@ string HASH_NODE::getWord() {
 
 COURSE_INDEX* HASH_NODE::getCourseIDPtr() {
     return courseIDPtr;
+}
+
+void HASH_NODE::setCourseIndex(COURSE_INDEX* _courseIDPtr) {
+    courseIDPtr = _courseIDPtr;
 }
