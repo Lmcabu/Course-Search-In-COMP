@@ -49,7 +49,6 @@ vector<string> split(const string& str);
 
 //data output
 void printResult(RESULT*);
-RESULT* sorting(RESULT* result);
 
 
 
@@ -81,7 +80,6 @@ int main(){
         cout<<"Please input keyword(s) of the course(s) you want to search for:"<<endl;
         cin>>keyword;
         RESULT* result=hashSearch(keyword);
-        result=sorting(result);
         printResult(result);
 
 
@@ -116,7 +114,11 @@ void ini(){
 //read from document
 string readInfor(int sequenceNum){
     ifstream  myfile;
-    myfile.open("data.tsv", ios::out | ios::in );
+    myfile.open("D:\\Visual code\\COMP 1011 Project\\Course-Search-In-COMP\\data.tsv", ios::out | ios::in );
+
+    if(!myfile.is_open()) {
+        cout << "open false";
+    }
     
     string result;
 
@@ -163,7 +165,7 @@ course informationProcess(string infor){
     infor = infor.substr(n + 1);
     n = infor.find("\t");
     //link
-    string clink = infor.substr(0, n);
+    clink = infor.substr(0, n);
 
     course a;
     a.s_courseID=cid;
@@ -202,8 +204,8 @@ int Hash(string s){
 
 void iniHashTable(){
      for(int i=0;i<111;i++){ 
-        HASH_NODE temp=HASH_NODE();
-        hashTable[i]=&temp;
+        HASH_NODE* temp= new HASH_NODE();
+        hashTable[i]= temp;
     }
 
     for(int i=0;i<83;i++){
@@ -382,7 +384,8 @@ void add(string word, int index){
     HASH_NODE* current=hashTable[hashCode];
 
     bool dup=false;
-    while(current!=NULL){
+    //  may need to change
+    while(current -> getWord() != ""){
         if(compare(word,current->getWord())){
             dup=true;
             
@@ -423,27 +426,6 @@ vector<string> split(const string& str)
 }
 
 //data output
-RESULT* sorting(RESULT* result) {
-    RESULT sortedResultList[81];
-    int index = 0;
-
-    while (result != NULL) {
-        sortedResultList[index++] = *result;
-        result = result->next;
-    }
-
-    for (int i = 0; i < index; i++) {
-        for (int j = i + 1; j < index; j++) {
-            if (sortedResultList[i].show_times <sortedResultList[j].show_times) {
-                RESULT temp = sortedResultList[i];
-                sortedResultList[i] = sortedResultList[j];
-                sortedResultList[j] = temp;
-            }
-        }
-    }
-
-    return sortedResultList;
-}
 
 void printResult(RESULT* result){
     //sorting
