@@ -197,8 +197,12 @@ void printResult(RESULT* result){
 
 
     for(int i=0;i<index;i++){
-       sortedResultList->result_course.getCourseID()<<"\t"
-
+       cout<< sortedResultList->result_course.getCourseID()<<"\t"
+           << sortedResultList->result_course.getCourseName()<<"\t"
+           << sortedResultList->result_course.getPreRequisite()<<"\t"
+           << sortedResultList->result_course.getCreditValue()<<"\t"
+           << sortedResultList->result_course.getLink()<<"\t"
+           <<endl;
     }
 
     
