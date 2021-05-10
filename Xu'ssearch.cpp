@@ -39,7 +39,8 @@ string changeToLower(string source) {
     return result;
 }
 
-long long compute_hash(string const& s){
+//Hash function
+int Hash(string s){
     const int p =31;
     const int m =111;
     long long hash_value = 0;
