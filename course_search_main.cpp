@@ -2,12 +2,8 @@
 #include "Course.h"
 #include <string>
 #include <vector>
-<<<<<<< HEAD
-#include <fstream>
-=======
 #include <fstream> // ifstream
 #include "HashSearch.cpp"
->>>>>>> 4f04ae318246b8a76dbc00fdc079a6f9a28db9f9
 #include "HASH_NODE.h"
 
 
