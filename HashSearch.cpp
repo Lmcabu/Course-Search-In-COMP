@@ -220,7 +220,8 @@ void insert(COURSE_INDEX* &courseIndex, COURSE_INDEX* index) {
 
 void add(string word, int index){
     int hashCode=Hash(word);
-    HASH_NODE* current=hashTable[hashCode];
+    HASH_NODE* current=new HASH_NODE();
+    current->setHashNode(hashTable[hashCode]->getWord(),hashTable[hashCode]->getCourseIDPtr());
 
     bool dup=false;
     while(current!=NULL){
