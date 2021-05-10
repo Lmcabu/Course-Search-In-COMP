@@ -276,7 +276,7 @@ void iniHashTable(){
         hashTable[i]=&temp;
     }
 
-    for(int i=0;i<81;i++){
+    for(int i=0;i<83;i++){
         Course currentCourse=courseList[i];
         string currentCourseName=courseList[i].getCourseName();
         vector<string> elements=split(currentCourseName);

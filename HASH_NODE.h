@@ -23,7 +23,7 @@ class HASH_NODE {
 
 HASH_NODE::HASH_NODE() {
     word = "";
-    courseIDPtr = new COURSE_INDEX();
+    courseIDPtr = new COURSE_INDEX;
 }
 
 void HASH_NODE::setHashNode(string _word, COURSE_INDEX* _courseIDPtr) {
