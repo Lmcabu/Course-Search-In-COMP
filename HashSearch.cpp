@@ -11,7 +11,7 @@
 using namespace std;//Hello world
 
 
-const int COURSE_SIZE = 81;
+const int COURSE_SIZE = 83;
 Course courseList[COURSE_SIZE];
 
 const int HASH_SIZE = 111;
@@ -271,8 +271,9 @@ vector<string> split(const string& str)
 }
 
 void iniHashTable(){
-     for(int i=0;i<111;i++){
-        hashTable[i]=new HASH_NODE;
+     for(int i=0;i<111;i++){ 
+        HASH_NODE temp=HASH_NODE();
+        hashTable[i]=&temp;
     }
 
     for(int i=0;i<81;i++){
