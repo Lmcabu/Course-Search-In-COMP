@@ -188,7 +188,7 @@ void loadResult(RESULT* resultHead, HASH_NODE* node) {
 
 //input the key words and return the Result link list
 
-/*
+
 RESULT *hashSearch(string keyword){
     int wordNumber = 0;
     RESULT* resultHead = new RESULT();
@@ -205,7 +205,7 @@ RESULT *hashSearch(string keyword){
     }
     return resultHead; 
 }
-*/
+
 
 
 
