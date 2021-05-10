@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 using namespace std;
+=======
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+>>>>>>> 773446ebe43ff4773a556d06fd027cc2c7f38c13
 struct COURSE_INDEX {
     int course_index;
     COURSE_INDEX* next = NULL;
@@ -11,7 +19,6 @@ class HASH_NODE {
     COURSE_INDEX* getCourseIDPtr();
     HASH_NODE();
     void setHashNode(string _word, COURSE_INDEX* _courseIDPtr);
-    
     void setCourseIndex(COURSE_INDEX* _courseIDPtr);
 
     private:
@@ -23,7 +30,7 @@ class HASH_NODE {
 
 HASH_NODE::HASH_NODE() {
     word = "";
-    courseIDPtr = new COURSE_INDEX;
+    courseIDPtr = new COURSE_INDEX();
 }
 
 void HASH_NODE::setHashNode(string _word, COURSE_INDEX* _courseIDPtr) {
