@@ -28,8 +28,6 @@ class HashTable{
         HashTable();
         int hash(string word);
         void add(string word,int index);
-        Node* lookup(string word);       
-        void display();
 };
 
 HashTable::HashTable(){
@@ -97,7 +95,7 @@ vector<string> split(const string& str)
 }
 
 void iniHashTable(){
-    HashTable hashTable=new HashTable();
+    HashTable *hashTable=new HashTable();
 
     for(int i=0;i<81;i++){
       Course currentCourse=courseList[i];
@@ -106,7 +104,7 @@ void iniHashTable(){
 
         vector<string>::iterator it;
         for(it=elements.begin();it!=elements.end();it++){
-            hashTable.add(*it);
+            hashTable->add(*it,i);
         }
 
     }

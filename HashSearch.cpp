@@ -14,7 +14,7 @@ using namespace std;//Hello world
 const int COURSE_SIZE = 81;
 Course courseList[COURSE_SIZE];
 
-const int HASH_SIZE = 11;
+const int HASH_SIZE = 111;
 HASH_NODE* hashTable[HASH_SIZE];
 
 struct RESULT{
@@ -208,11 +208,89 @@ RESULT *hashSearch(string keyword){
 
 
 
+bool compare(string a, string b){
+    if(a.length()!=b.length()) return false;
+    int len=a.length();
+    for(int i=0;i<len;i++){
+        if(a[i]!=b[i]) return false;
+    }
+    return true;
+}
 
+void insert(COURSE_INDEX* &courseIndex, COURSE_INDEX* index) {
+    index->next = courseIndex;
+    courseIndex = index;
+}
 
+void add(string word, int index){
+    int hashCode=Hash(word);
+    HASH_NODE* current=hashTable[hashCode];
 
+    bool dup=false;
+    while(current->next!=NULL){
+        if(compare(word,current->getWord())){
+            dup=true;
+            
+            COURSE_INDEX *newCourseIndex=new COURSE_INDEX;
+            newCourseIndex->course_index=index;
 
-int main(){
-    
+            COURSE_INDEX *temp=current->getCourseIDPtr();
+            insert(temp,newCourseIndex);
+            
+
+           
+        }
+        current=current->next;
+    }
+
+    if(!dup){
+        current->next=new HASH_NODE;
+        COURSE_INDEX *newCourseIndex=new COURSE_INDEX;
+        newCourseIndex->course_index=index;
+        current->next->setHashNode(word,newCourseIndex);
+        
+    }
 
 }
+
+
+
+
+vector<string> split(const string& str)
+{
+    vector<string> tokens;
+    size_t prev = 0, pos = 0;
+    do
+    {
+        pos = str.find(" ", prev);
+        if (pos == string::npos) pos = str.length();
+        string token = str.substr(prev, pos - prev);
+        if (!token.empty()) tokens.push_back(token);
+        prev = pos + 1;
+    } while (pos < str.length() && prev < str.length());
+    return tokens;
+}
+
+void iniHashTable(){
+     for(int i=0;i<111;i++){
+        hashTable[i]=new HASH_NODE;
+    }
+
+    for(int i=0;i<81;i++){
+        Course currentCourse=courseList[i];
+        string currentCourseName=courseList[i].getCourseName();
+        vector<string> elements=split(currentCourseName);
+
+        vector<string>::iterator it;
+        for(it=elements.begin();it!=elements.end();it++){
+            add(*it,i);
+        }
+
+    }
+}
+
+
+
+
+
+

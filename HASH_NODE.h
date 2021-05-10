@@ -16,6 +16,7 @@ class HASH_NODE {
     COURSE_INDEX* getCourseIDPtr();
     HASH_NODE();
     void setHashNode(string _word, COURSE_INDEX* _courseIDPtr);
+    
 
     private:
     string word;
