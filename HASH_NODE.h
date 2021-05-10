@@ -1,3 +1,6 @@
+#include <string>
+#include <iostream>
+
 
 struct COURSE_INDEX {
     int course_index;
@@ -11,10 +14,6 @@ class HASH_NODE {
     COURSE_INDEX* getCourseIDPtr();
     HASH_NODE();
     void setHashNode(string _word, COURSE_INDEX* _courseIDPtr);
-<<<<<<< HEAD
-=======
-    
->>>>>>> 4f04ae318246b8a76dbc00fdc079a6f9a28db9f9
     void setCourseIndex(COURSE_INDEX* _courseIDPtr);
 
     private:
