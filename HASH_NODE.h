@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-using namespace std;
-=======
 #include <string>
 #include <iostream>
 
 using namespace std;
 
->>>>>>> 773446ebe43ff4773a556d06fd027cc2c7f38c13
 struct COURSE_INDEX {
     int course_index;
     COURSE_INDEX* next = NULL;
